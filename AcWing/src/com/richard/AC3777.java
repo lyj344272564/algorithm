@@ -51,9 +51,9 @@ public class AC3777 {
 
         Scanner sc = new Scanner(System.in);
 
-        int T = sc.nextInt();
+        int nT = sc.nextInt();
 
-        while (T-- != 0) {
+        while (nT-- != 0) {
 
             int n = sc.nextInt();
 
