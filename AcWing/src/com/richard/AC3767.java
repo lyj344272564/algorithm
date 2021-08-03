@@ -3,6 +3,10 @@ package com.richard;
 
 import java.util.Scanner;
 
+/**
+ *
+ AcWing 3767. 最小的值
+ */
 public class AC3767 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

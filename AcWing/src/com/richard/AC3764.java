@@ -2,6 +2,9 @@ package com.richard;
 
 import java.util.Scanner;
 
+/**
+ * AcWing 3764. 三元数异或
+ */
 public class AC3764 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

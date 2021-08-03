@@ -2,6 +2,10 @@ package com.richard;
 
 import java.util.Scanner;
 
+/**
+ *
+ AcWing 3774. 亮灯时长
+ */
 public class AC3774 {
 
     private static int N = 100010;

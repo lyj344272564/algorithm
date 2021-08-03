@@ -3,6 +3,10 @@ package com.richard;
 
 import java.util.Scanner;
 
+/**
+ *
+ AcWing 3775. 数组补全
+ */
 public class AC3775 {
 
     public static void main(String[] args) {

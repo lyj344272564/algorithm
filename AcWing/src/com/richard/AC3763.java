@@ -2,6 +2,10 @@ package com.richard;
 
 import java.util.Scanner;
 
+/**
+ *
+ AcWing 3763. 数字矩阵
+ */
 public class AC3763 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

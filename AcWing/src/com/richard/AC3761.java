@@ -3,6 +3,9 @@ package com.richard;
 import java.util.Arrays;
 import java.util.Scanner;
 
+/**
+ * AcWing 3761. 唯一最小数
+ */
 public class AC3761 {
     public static void main(String[] args) {
         final int  N = 200010;

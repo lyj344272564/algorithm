@@ -2,6 +2,9 @@ package com.richard;
 
 import java.util.Scanner;
 
+/**
+ * AcWing 3768. 字符串删减
+ */
 public class AC3768 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

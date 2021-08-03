@@ -3,6 +3,10 @@ package com.richard;
 
 import java.util.Scanner;
 
+/**
+ *
+ AcWing 3762. 二进制矩阵
+ */
 public class AC3762 {
     public static void main(String[] args) {
         Scanner  sc = new Scanner(System.in);

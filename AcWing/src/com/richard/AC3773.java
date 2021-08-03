@@ -4,6 +4,10 @@ package com.richard;
 
 import java.util.Scanner;
 
+/**
+ *
+ AcWing 3773. 兔子跳
+ */
 public class AC3773 {
 
     public static void main(String[] args) {

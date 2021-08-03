@@ -4,6 +4,10 @@ import javafx.scene.AmbientLight;
 
 import java.util.Scanner;
 
+/**
+ *
+ AcWing 3776. 水果拼盘
+ */
 public class AC3776 {
 
     public static void main(String[] args) {

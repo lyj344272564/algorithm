@@ -2,6 +2,10 @@ package com.richard;
 
 import java.util.Scanner;
 
+/**
+ *
+ AcWing 3769. 移动石子
+ */
 public class AC3769 {
     public static void main(String[] args) {
 
