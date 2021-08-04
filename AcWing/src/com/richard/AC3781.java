@@ -2,6 +2,9 @@ package com.richard;
 
 import java.util.Scanner;
 
+/**
+ * AcWing 3781. 乘车问题
+ */
 public class AC3781 {
 
     public static void main(String[] args) {
