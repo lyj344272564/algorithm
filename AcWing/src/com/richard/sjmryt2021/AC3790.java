@@ -1,4 +1,4 @@
-package com.richard;
+package com.richard.sjmryt2021;
 
 import java.util.Scanner;
 import java.util.concurrent.CountDownLatch;

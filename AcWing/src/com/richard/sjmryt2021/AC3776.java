@@ -1,4 +1,4 @@
-package com.richard;
+package com.richard.sjmryt2021;
 
 import javafx.scene.AmbientLight;
 
