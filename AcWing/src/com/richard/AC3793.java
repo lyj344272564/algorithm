@@ -40,6 +40,7 @@ public class AC3793 {
                 } else if (a[i]>0){
                     break;
                 }
+
             }
 
             System.out.println(res);
