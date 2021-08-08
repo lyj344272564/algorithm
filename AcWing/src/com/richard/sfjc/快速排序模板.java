@@ -50,6 +50,7 @@ public class 快速排序模板 {
         if (l>=r) {
             return ;
         }
+
         int x = q[l];
         int i = l - 1;
         int j = r + 1;
