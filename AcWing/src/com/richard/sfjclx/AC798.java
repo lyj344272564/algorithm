@@ -20,14 +20,21 @@ public class AC798 {
         int m = sc.nextInt();
         int q = sc.nextInt();
 
-        for (int i=1; i<=n; i++) {
-            for (int j=1; j<=m; j++) {
-                a[i][j] = sc.nextInt();
-            }
-        }
+//        for (int i=1; i<=n; i++) {
+//            for (int j=1; j<=m; j++) {
+//                a[i][j] = sc.nextInt();
+//            }
+//        }
+//
+//        for (int i=1; i<=n; i++) {
+//            for (int j=1; j<=m; j++) {
+//                insert(i, j, i, j, a[i][j]);
+//            }
+//        }
 
         for (int i=1; i<=n; i++) {
             for (int j=1; j<=m; j++) {
+                a[i][j] = sc.nextInt();
                 insert(i, j, i, j, a[i][j]);
             }
         }

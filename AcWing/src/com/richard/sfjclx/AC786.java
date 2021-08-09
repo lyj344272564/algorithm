@@ -1,50 +1,71 @@
 package com.richard.sfjclx;
 
-import java.util.Scanner;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 /**
  * 786. 第k个数
  */
 public class AC786 {
 
-    private static int N = 100010;
+    private static final int N = 100010;
+    private static int[] q = new int[N];
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        Scanner sc = new Scanner(System.in);
+       BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        int n = sc.nextInt();
-        int k = sc.nextInt();
+       String[] str1 = reader.readLine().split(" ");
 
-        int[] a = new int[N];
+       int n = Integer.parseInt(str1[0]);
+       int k = Integer.parseInt(str1[1]);
 
-        for (int i=0; i<n; i++) {
-            a[i] = sc.nextInt();
-        }
+       String[] str2 = reader.readLine().split(" ");
+       for (int i=0; i<n; i++) {
+           q[i] = Integer.parseInt(str2[i]);
+       }
 
-        quick_start(a,0,n-1);
+       quick_sort(q,0,n-1);
 
-        System.out.println(a[k-1]);
-
+       System.out.println(q[k-1]);
+        System.out.println(quick_sort(0,n-1,k));
     }
 
-    public static void quick_start(int q[], int l, int r) {
-
+    private static void quick_sort(int[] q, int l, int r) {
         if (l >= r) {
             return;
         }
 
-        int x = q[l];
+        int x = q[l+r >> 1];
         int i = l - 1;
         int j = r + 1;
 
         while (i < j) {
-            do {
-                i++;
-            } while (q[i] < x);
-            do {
-                j--;
-            } while (q[j] > x);
+            while (q[++i]<x);
+            while (q[--j]>x);
+            if (i < j) {
+                int temp = q[i];
+                q[i] = q[j];
+                q[j] = temp;
+            }
+        }
+        quick_sort(q,l,j);
+        quick_sort(q,j+1,r);
+
+    }
+    private static int quick_sort(int l, int r,int k) {
+        if (l >= r) {
+            return  q[l];
+        }
+        int x = q[l+r >> 1];
+        int i = l - 1;
+        int j = r + 1;
+
+        while (i < j) {
+            while (q[++i]<x);
+            while (q[--j]>x);
             if (i < j) {
                 int temp = q[i];
                 q[i] = q[j];
@@ -52,8 +73,13 @@ public class AC786 {
             }
         }
 
-        quick_start(q, l, j);
-        quick_start(q, j+1, r);
+        int sl = j - l + 1;
+        if (sl >= k){
+            return quick_sort(l, j, k);
+        } else {
+            return quick_sort(j+1, r, k);
+        }
 
     }
+
 }

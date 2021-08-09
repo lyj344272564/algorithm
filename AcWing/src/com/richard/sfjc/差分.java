@@ -3,6 +3,10 @@ package com.richard.sfjc;
 
 import java.util.Scanner;
 
+/**
+ * 在a[L,R]上加c
+ * 就相当于在b[L]+=c   b[R+1]-=c  因为在L~R之间都加c，那么R之后的一个就要减去这个c
+ */
 public class 差分 {
 
     private static final int N = 100010;
@@ -16,13 +20,20 @@ public class 差分 {
         int n = sc.nextInt();
         int m = sc.nextInt();
 
+//        for (int i=1; i<=n; i++) {
+//            a[i] = sc.nextInt();
+//        }
+//
+//        for (int i=1; i<=n; i++) {
+//            insert(i,i,a[i]); // 初始化b序列
+//        }
+
+        // 优化
         for (int i=1; i<=n; i++) {
             a[i] = sc.nextInt();
-        }
-
-        for (int i=1; i<=n; i++) {
             insert(i,i,a[i]); // 初始化b序列
         }
+
 
         while (m-- != 0) {
             int l = sc.nextInt();

@@ -23,7 +23,6 @@ public class AC788 {
 
         System.out.println(merge_sort(0,n-1));
 
-
     }
 
     public static long merge_sort(int l, int r) {
@@ -48,16 +47,17 @@ public class AC788 {
             }
         }
 
-        while (i<=mid) {
+        while (i <= mid) {
             temp[k++] = q[i++];
         }
-        while (j<=r) {
+        while (j <= r) {
             temp[k++] = q[j++];
         }
 
         for (i=l,j=0; i<=r; i++,j++) {
             q[i] = temp[j];
         }
+
         return res;
     }
 

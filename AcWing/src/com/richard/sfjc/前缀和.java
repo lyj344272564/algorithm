@@ -18,12 +18,18 @@ public class 前缀和 {
         int[] s = new int[N];
 
 
+//        for (int i=1; i<=n; i++) {
+//            a[i] = sc.nextInt();
+//        }
+//
+//        // 前缀和初始化
+//        for (int i=1; i<=n; i++) {
+//            s[i] = s[i-1] + a[i];
+//        }
+
+        //优化
         for (int i=1; i<=n; i++) {
             a[i] = sc.nextInt();
-        }
-
-        // 前缀和初始化
-        for (int i=1; i<=n; i++) {
             s[i] = s[i-1] + a[i];
         }
 

@@ -15,9 +15,9 @@ public class AC790 {
 
         double n = Double.parseDouble(in.readLine());
 
-        double l=-10000;
+        double l = -10000;
 
-        double r=10000;
+        double r = 10000;
 
         while(r-l>1e-8) {
             double mid = (l+r)/2;
@@ -27,7 +27,7 @@ public class AC790 {
                 r = mid;
             }
         }
-        System.out.printf("%.6f\n",l);
+        System.out.printf("%.6f\n", l);
 
     }
 
