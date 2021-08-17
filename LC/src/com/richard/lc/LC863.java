@@ -1,4 +1,4 @@
-package com.richard;
+package com.richard.lc;
 
 import java.util.ArrayList;
 import java.util.HashMap;
