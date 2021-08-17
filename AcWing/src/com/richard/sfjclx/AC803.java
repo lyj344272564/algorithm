@@ -11,7 +11,6 @@ public class AC803 {
 
     private static final int N = 100010;
 
-
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
@@ -28,6 +27,7 @@ public class AC803 {
         System.out.println(ans);
     }
 
+    // 区间合并模板
     private static int merge(List<PII> list) {
 
         List<PII> res = new ArrayList<>();
@@ -56,7 +56,6 @@ public class AC803 {
         return res.size();
 
     }
-
 
 }
 
