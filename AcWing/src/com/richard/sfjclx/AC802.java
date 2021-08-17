@@ -52,18 +52,12 @@ public class AC802 {
             }
 
         }
-//        for (int i = 0 ; i <= all.size() ; ++i) {
-//            int j = 0;
-//            if (i != 0 || all.get(i) != all.get(i-1)) {
-//                all.set(j++,all.get(i));
-//            }
-//
-//        }
-
         while (all.size() != cnt) {
             all.remove(all.size() - 1) ;
         }
 
+
+        // 处理插入
         for (int [] ad : add) {
             int x = find(ad[0]) ;
             a[x] += ad[1] ;
