@@ -54,8 +54,9 @@ public class AC826 {
                 int k = sc.nextInt();
                 if (k == 0)
                     head = ne[head];
-                else
+                else {
                     remove(k - 1);
+                }
             }
         }
 

@@ -1,5 +1,9 @@
 package com.richard.sfjclx;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 /**
  * 827. 双链表
  */
@@ -17,18 +21,14 @@ public class AC827 {
         idx=2;
     }
 
-    // 在第k个点的右面插入x
-    private static void r_add(int k, int x) {
+
+    private static void add(int k, int x) {
         e[idx] = x;
         r[idx] = r[k];
         l[idx] = k;
-        r[k] = idx;
         l[r[k]] = idx;
-    }
-
-    //在k的左面插入
-    private static void l_add(int k, int x) {
-        r_add(l[k], x);
+        r[k] = idx;
+        idx++;
     }
 
     // 删除第k个点
@@ -39,8 +39,40 @@ public class AC827 {
 
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
 
+        int M = Integer.parseInt(bf.readLine());
+
+        init();
+
+        while(M-->0){
+            String[]arr=bf.readLine().split(" ");
+            String op=arr[0];
+
+            if(op.equals("L")){
+                int x=Integer.parseInt(arr[1]);
+                add(0,x);
+            }else if(op.equals("R")){
+                int x=Integer.parseInt(arr[1]);
+                add(l[1],x);
+            }else if(op.equals("D")){
+                int k=Integer.parseInt(arr[1]);
+                remove(k+1);
+            }else if(op.equals("IL")){
+                int k=Integer.parseInt(arr[1]);
+                int x=Integer.parseInt(arr[2]);
+                add(l[k+1],x);
+            }else{
+                int k=Integer.parseInt(arr[1]);
+                int x=Integer.parseInt(arr[2]);
+                add(k+1,x);
+            }
+        }
+
+        for(int i=r[0];i!=1;i=r[i]) {
+            System.out.print(e[i]+" ");
+        }
     }
 
 }
