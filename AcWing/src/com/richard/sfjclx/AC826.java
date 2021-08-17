@@ -1,8 +1,5 @@
 package com.richard.sfjclx;
 
-
-import sun.util.resources.cldr.en.CurrencyNames_en_JM;
-
 import java.util.Scanner;
 
 /**
