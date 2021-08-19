@@ -1,9 +1,6 @@
 package com.richard.sfjclx;
 
-
-
 import java.io.*;
-import java.util.Scanner;
 
 /**
  * 154. 滑动窗口
@@ -15,7 +12,7 @@ public class AC154 {
     static final int N = (int) 1e6 + 100000;
     static int[] a = new int[N];
     static int[] q = new int[N];
-    static int hh = 0, tt = 0;
+    static int hh = 0, tt = -1;
 
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -31,13 +28,16 @@ public class AC154 {
         }
 
         for(int i = 0; i < n;i ++) {
+            // 控制窗口的滑动
             if (hh <= tt && i - k + 1 > q[hh]) {
                 hh++;
             }
+            // 判断大小使之成为单调序列
             while (hh <= tt && a[q[tt]] >= a[i]) {
                 tt--;
             }
             q[++ tt] = i;
+            // 从头开始遍历
             if (i >= k - 1 ) {
                 writer.write(a[q[hh]] + " ");
             }

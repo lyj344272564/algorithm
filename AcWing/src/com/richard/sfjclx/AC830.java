@@ -23,7 +23,9 @@ public class AC830 {
         for (int i = 0; i < n; i++) {
             int x = sc.nextInt();
             // 3 4 2 7 5
-            while (tt != 0 && stk[tt] >= x) tt--;
+            while (tt != 0 && stk[tt] >= x) {
+                tt--;
+            }
             if (tt != 0) {
                 System.out.print(stk[tt] + " ");
             } else {
