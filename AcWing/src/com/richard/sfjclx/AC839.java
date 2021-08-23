@@ -1,10 +1,9 @@
 package com.richard.sfjclx;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 /**
- *
+ * 839、模拟堆
  */
 public class AC839 {
 
