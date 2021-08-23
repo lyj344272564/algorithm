@@ -33,6 +33,7 @@ public class AC143 {
        int res = 0;
        for (int i=30; i>=0; i--) {
            int u = (x>>i)&1;
+           // 另外一个数
            if (son[p][u ^ 1] != 0) {
                res = (res << 1) + 1;
                u = u ^ 1;
