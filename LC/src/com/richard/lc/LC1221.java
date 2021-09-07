@@ -1,6 +1,5 @@
 package com.richard.lc;
 
-import com.sun.xml.internal.bind.v2.model.core.ID;
 
 /**
  * 1221. 分割平衡字符串
