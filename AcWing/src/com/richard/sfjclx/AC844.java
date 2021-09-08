@@ -33,6 +33,7 @@ public class AC844 {
         }
         System.out.println(bfs());
         reader.close();
+
     }
     private static int bfs() {
         int hh = 0, tt = 0;
@@ -59,7 +60,6 @@ public class AC844 {
         }
         return d[n - 1][m - 1];
     }
-
 
 }
 class PI {
