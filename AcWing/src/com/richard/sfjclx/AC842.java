@@ -1,5 +1,7 @@
 package com.richard.sfjclx;
 
+import sun.java2d.pipe.SpanIterator;
+
 import java.util.Scanner;
 
 /**
@@ -7,18 +9,54 @@ import java.util.Scanner;
  */
 public class AC842 {
 
+//    private static final int N = 10;
+//    private static int[] path = new int[N];
+//    private static boolean[] st = new boolean[N];
+//    private static int n;
+//
+//    private static void dfs(int u) {
+//        if (n == u) {
+//            for (int i=0; i<n; i++) {
+//                System.out.print(path[i] + " ");
+//            }
+//            System.out.println();
+//            // 回溯
+//            return;
+//        }
+//        for (int i=1; i<=n; i++) {
+//            if (!st[i]) {
+//                path[u] = i;
+//                st[i] = true;
+//                dfs(u+1);
+//                st[i] = false;
+//            }
+//        }
+//
+//    }
+//
+//    public static void main(String[] args) {
+//
+//        Scanner sc = new Scanner(System.in);
+//
+//        n = sc.nextInt();
+//
+//        dfs(0);
+//
+//    }
+
+
     private static final int N = 10;
     private static int[] path = new int[N];
     private static boolean[] st = new boolean[N];
     private static int n;
 
+
     private static void dfs(int u) {
-        if (n == u) {
+        if (u == n) {
             for (int i=0; i<n; i++) {
                 System.out.print(path[i] + " ");
             }
             System.out.println();
-            // 回溯
             return;
         }
         for (int i=1; i<=n; i++) {
@@ -29,21 +67,15 @@ public class AC842 {
                 st[i] = false;
             }
         }
-
     }
 
     public static void main(String[] args) {
-
         Scanner sc = new Scanner(System.in);
 
         n = sc.nextInt();
-
         dfs(0);
 
     }
-
-
-
 
 
 

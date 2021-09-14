@@ -11,7 +11,7 @@ import java.io.InputStreamReader;
 public class AC844 {
 
     private static final int N = 110;
-    //g 图  d距离
+    //g图  d距离
     private static int[][] g = new int[N][N], d = new int[N][N];
     // 队列
     private static PI[] q = new PI[N * N];
@@ -35,6 +35,7 @@ public class AC844 {
         reader.close();
 
     }
+
     private static int bfs() {
         int hh = 0, tt = 0;
         q[0] = new PI(0, 0);
@@ -62,6 +63,7 @@ public class AC844 {
     }
 
 }
+
 class PI {
     private int first;
     private int second;

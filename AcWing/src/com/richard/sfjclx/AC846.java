@@ -1,9 +1,6 @@
 package com.richard.sfjclx;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.time.chrono.MinguoChronology;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -40,7 +37,9 @@ public class AC846 {
             if (!st[j]) {
                 // 当前子树大小
                 int s = dfs(j);
+                // 当前这个子树和res取max
                 res = Math.max(res,s);
+                // 当前这个子树也算子树
                 sum += s;
             }
         }

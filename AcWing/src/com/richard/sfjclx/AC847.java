@@ -4,6 +4,7 @@ package com.richard.sfjclx;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 
 /**
  * 847. 图中点的层次
@@ -42,9 +43,9 @@ public class AC847 {
         private static int bfs() {
             int hh = 0, tt = 0;
             q[0] = 1;
-            for (int i = 0; i < d.length; i++) {
-                d[i] = -1;
-            }
+
+            Arrays.fill(d,-1);
+
             d[1] = 0;
             while (hh <= tt) {
                 int t = q[hh++];
