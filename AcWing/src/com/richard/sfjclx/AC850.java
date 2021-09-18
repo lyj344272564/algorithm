@@ -6,8 +6,37 @@ import java.util.PriorityQueue;
 
 /**
  * 850. Dijkstra求最短路 II
+ *
+ * https://learnku.com/articles/35637
  */
 public class AC850 {
+    /**
+     * @Test
+     * public void testPriorityQueue(){
+     *     //默认采用的是最小堆实现的
+     *     PriorityQueue<Integer> queue = new PriorityQueue<Integer>(10,new Comparator<Integer>(){
+     *         public int compare(Integer a, Integer b){
+     *             return a-b; //if a>b 则交换，so这是递增序列
+     *         }
+     *     });
+     *     queue.offer(13);
+     *     queue.offer(9);
+     *     int len = queue.size();
+     *     for(int i=0;i<len;i++){
+     *         System.out.println(queue.poll());
+     *     }
+     *     //输出 9  13
+     *     //默认采用的是最小堆实现的
+     *     PriorityQueue<Integer> queue2 = new PriorityQueue<>(10);
+     *     queue2.offer(11);
+     *     queue2.offer(9);
+     *     len = queue2.size();
+     *     for(int i=0;i<len;i++){
+     *         System.out.println(queue2.poll());
+     *     }
+     *     //输出 9， 11
+     *     }
+     */
 
     static int N = 100010;
 
@@ -51,13 +80,13 @@ public class AC850 {
     }
 
     private static int dijkstra (int n){
-        PriorityQueue<int[]> pq = new PriorityQueue<>(n, (a, b) -> {return a[1] - b[1];}) ;
+        PriorityQueue<int[]> pq = new PriorityQueue<>(n, (a, b) -> {return a[1] - b[1];});
         int INF = 1 << 30 ;
         Arrays.fill(dist,INF);
         pq.offer(new int []{1, 0}) ;
         dist[1] = 0 ;
         while (!pq.isEmpty()) {
-            int [] cur = pq.poll();
+            int[] cur = pq.poll();
             int ver = cur[0] ;
             int distance = cur[1] ;
             if (st[ver]) continue ;

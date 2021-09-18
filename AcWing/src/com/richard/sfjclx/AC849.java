@@ -12,6 +12,7 @@ public class AC849 {
 
     static int N = 510;
     static int[][] g = new int[N][N]; //稠密图使用邻接矩阵存储
+    // 当前的最短距离
     static int[] dist = new int[N];
     static boolean[] st = new boolean[N]; //相当于s集合，确定了和1号点的最短距离的点加入到s集合中
     static int n;
@@ -30,7 +31,6 @@ public class AC849 {
                 if(t==-1||dist[j]<dist[t]){
                     t = j;
                 }
-
             }
             st[t] = true;
             //更新其它节点到1号点的距离
