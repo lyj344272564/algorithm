@@ -44,7 +44,7 @@ public class AC853 {
 
         dist[1] = 0;
         for (int i=0; i<k; i++) {
-            // 上一次迭代的结果来copy  才不会发生串联
+            // 只用上一次迭代的结果来copy  才不会发生串联
             back = dist.clone();
             for (int j=0; j<m; j++) {
                 Edge e = edge[j];
