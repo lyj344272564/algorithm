@@ -56,7 +56,7 @@ public class AC861 {
 
     static boolean find(int x) {
         for (int i=h[x];i!=-1; i=ne[i]) {
-            int j  =e[i];
+            int j = e[i];
             if (!st[j]) {
                 st[j] = true;
                 // 如果没有匹配或者说可以找到下家

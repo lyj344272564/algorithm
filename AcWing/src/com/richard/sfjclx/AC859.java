@@ -1,6 +1,5 @@
 package com.richard.sfjclx;
 
-import javax.sound.sampled.spi.FormatConversionProvider;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -9,6 +8,7 @@ import java.util.Comparator;
 
 /**
  * 859. Kruskal算法求最小生成树
+ * 稀疏图
  */
 public class AC859 {
 
@@ -22,17 +22,22 @@ public class AC859 {
 
 
         static int N = 100010;
+        // 并查集里面的数组
         static int[] p = new int[N];
 
-        public static void main(String[]args) throws IOException{
+        public static void main(String[]args) throws IOException {
             BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
             String[] cur = in.readLine().split(" ");
             int n = Integer.parseInt(cur[0]);
             int m = Integer.parseInt(cur[1]);
 
-            for(int i=1; i<=n; i++) p[i] = i;
+            // 初始化并查集
+            for(int i=1; i<=n; i++) {
+                p[i] = i;
+            }
 
             Edge[] g = new Edge[m];
+
             for(int i=0; i<m; i++){
                 String[] arr = in.readLine().split(" ");
                 int a = Integer.parseInt(arr[0]);
@@ -50,7 +55,9 @@ public class AC859 {
                 }
             });
 
+            // 当前加入多少条边
             int cnt = 0;
+            // 最小生成树中的所有权重之和
             int res = 0;
             for(int i=0; i<m; i++){
                 Edge tmp = g[i];
@@ -61,18 +68,17 @@ public class AC859 {
                 b = find(b);
                 if(a!=b){
                     p[a] = b;
-                    res+=c;
+                    res += c;
                     cnt++;
                 }
             }
 
-            if(cnt==n-1){
+            if(cnt == n-1){
                 System.out.println(res);
-            }else System.out.println("impossible");
+            }else {
+                System.out.println("impossible");
+            }
         }
-
-
-
 
     static int find(int x){
         if(x!=p[x]){
