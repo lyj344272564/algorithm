@@ -1,8 +1,8 @@
 package com.richard.sfjc;
 
-import com.sun.org.apache.xpath.internal.WhitespaceStrippingElementMatcher;
-
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class 归并排序模板 {
 
@@ -10,15 +10,16 @@ public class 归并排序模板 {
     private static int[] temp = new int[N];
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        String[] val = bf.readLine().split(" ");
 
-        Scanner sc=new Scanner(System.in);
-
-        int n=sc.nextInt();
+        int n = Integer.parseInt(val[0]);
         int[] a=new int[n];
 
-        for(int i=0;i<n;i++) {
-            a[i]=sc.nextInt();
+        String[] cur = bf.readLine().split(" ");
+        for (int i=0; i<n; i++) {
+            a[i] = Integer.parseInt(cur[i]);
         }
 
         merge_sort(a,0,n-1);
@@ -31,24 +32,23 @@ public class 归并排序模板 {
 
     public static void merge_sort(int[] q, int l, int r) {
 
-        // 只有一个或者没有就不需要排序了
-        if (l>=r) {
+
+        if (l >= r) {
             return;
         }
 
-        int mid = l + r>>1;
+        int mid = l + r >> 1;
 
-        // 左边
         merge_sort(q,l,mid);
         merge_sort(q,mid+1,r);
 
+
         int k = 0;
         int i = l;
-        int j = mid+1;
+        int j = mid + 1;
 
-
-        while (i <= mid && j<=r) {
-            if (q[i] <= q[j]) {
+        while (i<=mid && j<=r) {
+            if (q[i]<=q[j]) {
                 temp[k++] = q[i++];
             } else {
                 temp[k++] = q[j++];
@@ -61,9 +61,11 @@ public class 归并排序模板 {
         while (j<=r) {
             temp[k++] = q[j++];
         }
+
         for (i=l,j=0; i<=r; i++,j++) {
-            q[i] = temp[j];
+             q[i] = temp[j];
         }
+
     }
 
 }
