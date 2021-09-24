@@ -11,23 +11,23 @@ public class AC790 {
 
     public static void main(String[] args) throws IOException {
 
-        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
 
-        double n = Double.parseDouble(in.readLine());
+        double x = Double.parseDouble(bf.readLine());
 
         double l = -10000;
-
         double r = 10000;
 
-        while(r-l>1e-8) {
-            double mid = (l+r)/2;
-            if(mid*mid*mid < n) {
-                l = mid;
-            } else {
+        while (l - r > 1e-8) {
+            double mid = (l + r) / 2;
+            if (mid * mid * mid > x) {
                 r = mid;
+            } else {
+                l = mid;
             }
         }
-        System.out.printf("%.6f\n", l);
+
+        System.out.printf("%.6f]\n",l);
 
     }
 

@@ -11,7 +11,9 @@ public class AC802 {
     private static int[] a = new int[N]; // 要存的数
     private static int[] s = new int[N]; // 前缀和
     private static List<Integer> all = new ArrayList<>(); // 存的所有要离散化的值
+    // 插入第一种操作
     private static List<int[]> add  = new ArrayList<>();
+    // 求
     private static List<int[]> query = new ArrayList<>();
 
     public static void main(String[] args) {
@@ -56,7 +58,6 @@ public class AC802 {
             all.remove(all.size() - 1) ;
         }
 
-
         // 处理插入
         for (int [] ad : add) {
             int x = find(ad[0]) ;
@@ -86,7 +87,7 @@ public class AC802 {
         while (l < r) {
 
             int mid = l+r >> 1;
-            if (all.get(mid)>= x) {
+            if (all.get(mid) >= x) {
                 r = mid;
             } else {
                 l = mid + 1;

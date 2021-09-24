@@ -1,6 +1,9 @@
 package com.richard.sfjc;
 
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 /**
@@ -13,36 +16,74 @@ public class 差分 {
     private static int[] a = new int[N];
     private static int[] b = new int[N];
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        Scanner sc = new Scanner(System.in);
-
-        int n = sc.nextInt();
-        int m = sc.nextInt();
-
+//        Scanner sc = new Scanner(System.in);
+//
+//        int n = sc.nextInt();
+//        int m = sc.nextInt();
+////        for (int i=1; i<=n; i++) {
+////            a[i] = sc.nextInt();
+////        }
+////
+////        for (int i=1; i<=n; i++) {
+////            insert(i,i,a[i]); // 初始化b序列
+////        }
+//
+//        // 优化
 //        for (int i=1; i<=n; i++) {
 //            a[i] = sc.nextInt();
+//            insert(i,i,a[i]); // 初始化b序列
+//        }
+//
+//
+//        while (m-- != 0) {
+//            int l = sc.nextInt();
+//            int r = sc.nextInt();
+//            int c = sc.nextInt();
+//            insert(l,r,c);
+//        }
+//
+//        // 求a[i]
+//        for (int i=1; i<=n; i++) {
+//            b[i] += b[i-1];
 //        }
 //
 //        for (int i=1; i<=n; i++) {
-//            insert(i,i,a[i]); // 初始化b序列
+//            System.out.print(b[i] + " ");
 //        }
+//
+//    }
+//
+//    public static void insert(int l, int r, int c) {
+//        b[l] += c;
+//        b[r+1] -= c;
+//    }
 
-        // 优化
+
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+
+        String[] val = bf.readLine().split(" ");
+
+        int n = Integer.parseInt(val[0]);
+        int m = Integer.parseInt(val[1]);
+
+        String[] cur = bf.readLine().split(" ");
         for (int i=1; i<=n; i++) {
-            a[i] = sc.nextInt();
-            insert(i,i,a[i]); // 初始化b序列
+            a[i] = Integer.parseInt(cur[i-1]);
+            insert(i,i,a[i]);
         }
-
 
         while (m-- != 0) {
-            int l = sc.nextInt();
-            int r = sc.nextInt();
-            int c = sc.nextInt();
+            String[] cur1 = bf.readLine().split(" ");
+            int l = Integer.parseInt(cur1[0]);
+            int r = Integer.parseInt(cur1[1]);
+            int c = Integer.parseInt(cur1[2]);
+
             insert(l,r,c);
+
         }
 
-        // 求a[i]
         for (int i=1; i<=n; i++) {
             b[i] += b[i-1];
         }
@@ -53,9 +94,9 @@ public class 差分 {
 
     }
 
-    public static void insert(int l, int r, int c) {
-        b[l] += c;
-        b[r+1] -= c;
+    private static void insert(int i, int j, int a) {
+        b[i] += a;
+        b[j+1] -= a;
     }
 
 }
