@@ -1,6 +1,6 @@
 package com.richard.sfjclx;
 
-import java.util.Scanner;
+import java.io.*;
 
 /**
  * 838. 堆排序
@@ -8,42 +8,39 @@ import java.util.Scanner;
 public class AC838 {
 
     private static final int N = 100010;
-
     private static int[] h = new int[N];
     private static int size = 0;
 
     private static void down(int u) {
+
         int t = u;
-        if (u*2 <= size && h[u*2] < h[t]) {
+        if (2*u<size && h[2*u]<h[t]) {
             t = u*2;
         }
-        if (u*2+1 <= size && h[u*2+1]<h[t]) {
+        if (2*u+1<size && h[2*u+1]<h[t]) {
             t = u*2+1;
         }
-        // 证明可以down 也可以成为递归终止条件
+
         if (u != t) {
             int temp = h[u];
             h[u] = h[t];
             h[t] = temp;
-            // 继续down
             down(t);
         }
     }
 
-    private static void up(int x) {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-    }
-
-    public static void main(String[] args) {
-
-        Scanner sc = new Scanner(System.in);
-
-        int n = sc.nextInt();
-        int m = sc.nextInt();
+        String[] val = br.readLine().split(" ");
+        int n = Integer.parseInt(val[0]);
+        int m = Integer.parseInt(val[1]);
 
         size = n;
+        String[] cur = br.readLine().split(" ");
         for (int i=0; i<n; i++) {
-            h[i] = sc.nextInt();
+             h[i] = Integer.parseInt(cur[i]);
         }
 
         for (int i=n/2; i>=0; i--) {
@@ -51,6 +48,7 @@ public class AC838 {
         }
 
         while (m-- != 0) {
+//            bw.write(h[1] + " ");
             System.out.print(h[1] + " ");
             h[1] = h[size];
             size--;
@@ -58,5 +56,55 @@ public class AC838 {
         }
 
     }
+
+//
+//    private static final int N = 100010;
+//
+//    private static int[] h = new int[N];
+//    private static int size = 0;
+//
+//    private static void down(int u) {
+//        int t = u;
+//        if (u*2 <= size && h[u*2] < h[t]) {
+//            t = u*2;
+//        }
+//        if (u*2+1 <= size && h[u*2+1]<h[t]) {
+//            t = u*2+1;
+//        }
+//        // 证明可以down 也可以成为递归终止条件
+//        if (u != t) {
+//            int temp = h[u];
+//            h[u] = h[t];
+//            h[t] = temp;
+//            // 继续down
+//            down(t);
+//        }
+//    }
+//
+//    public static void main(String[] args) {
+//
+//        Scanner sc = new Scanner(System.in);
+//
+//        int n = sc.nextInt();
+//        int m = sc.nextInt();
+//
+//        size = n;
+//
+//        for (int i=0; i<n; i++) {
+//            h[i] = sc.nextInt();
+//        }
+//
+//        for (int i=n/2; i>=0; i--) {
+//            down(i);
+//        }
+//
+//        while (m-- != 0) {
+//            System.out.print(h[1] + " ");
+//            h[1] = h[size];
+//            size--;
+//            down(1);
+//        }
+//
+//    }
 
 }

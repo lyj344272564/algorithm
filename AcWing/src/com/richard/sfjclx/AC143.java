@@ -1,12 +1,14 @@
 package com.richard.sfjclx;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 /**
  * 143. 最大异或对
  * 位运算
- * 相同为1 不同为0
- * & (1&1=1) (0&0=0) (0&1=0)
+ * 异或相同为0 不同为1
+ * & (1&1=0) (0&0=0) (0&1=1)
  */
 public class AC143 {
 
@@ -17,10 +19,30 @@ public class AC143 {
     private static int[][] son = new int[M][2];
     private static int idx = 0;
 
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int n = Integer.parseInt(br.readLine());
+
+        String[] cur = br.readLine().split(" ");
+
+        int res = 0;
+
+        for (int i=0; i<n; i++) {
+            a[i] = Integer.parseInt(cur[i]);
+            insert(a[i]);
+            res = Math.max(res, query(a[i]));
+        }
+
+        System.out.println(res);
+
+    }
+
     private static void insert(int x) {
-        int p=0;
+        int p = 0;
         for (int i=30; i>=0; i--) {
-            int u = (x>>i)&1;
+            int u = x >> i & 1;
             if (son[p][u] == 0) {
                 son[p][u] = ++idx;
             }
@@ -29,39 +51,19 @@ public class AC143 {
     }
 
     private static int query(int x) {
-       int p = 0;
-       int res = 0;
-       for (int i=30; i>=0; i--) {
-           int u = (x>>i)&1;
-           // 另外一个数
-           if (son[p][u ^ 1] != 0) {
-               res = (res << 1) + 1;
-               u = u ^ 1;
-           } else {
-               res = res << 1;
-           }
-           p = son[p][u];
-       }
-       return res;
-    }
-
-    public static void main(String[] args) {
-
-        Scanner sc = new Scanner(System.in);
-
-        int n = sc.nextInt();
-
-        for (int i=0; i<n; i++) {
-            a[i] = sc.nextInt();
-        }
-
+        int p = 0;
         int res = 0;
-        for (int i=0; i<n; i++) {
-            insert(a[i]);
-            res = Math.max(res,query(a[i]));
+        for (int i=30; i>=0; i--) {
+            int u = x >> i & 1;
+            if (son[p][u^1] != 0) {
+                p = son[p][u^1];
+                res = (res << 1) + u^1;
+            } else {
+                p = son[p][u];
+                res = res << 1;
+            }
         }
-
-        System.out.println(res);
+        return res;
     }
 
 }
