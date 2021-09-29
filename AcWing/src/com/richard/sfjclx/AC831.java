@@ -24,6 +24,7 @@ public class AC831 {
         char[] s = s2.toCharArray();
 
 
+
         //ne  n
         for (int i=2,j=0; i<=n; i++) {
             while (j!=0 && p[i]!=p[j+1]) {
