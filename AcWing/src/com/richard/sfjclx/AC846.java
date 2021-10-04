@@ -1,8 +1,9 @@
 package com.richard.sfjclx;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.Scanner;
 
 /**
  * 846. 树的重心
@@ -11,6 +12,7 @@ public class AC846 {
 
     private static final int N = 100010;
     private static final int M = 2 * N;
+
     // n个链表的头
     private static int[] h = new int[N];
     // e边
@@ -18,11 +20,11 @@ public class AC846 {
     // ne next值
     private static int[] ne = new int[M];
     private static int idx;
+
     private static boolean[] st = new boolean[N];
     // 最小的最大值
     private static int ans = N;
     private static int n;
-    private static int m;
 
     // 以u为根的子树的点的数量
     private static int dfs(int u) {
@@ -58,15 +60,16 @@ public class AC846 {
 
     public static void main(String[] args) throws IOException {
 
-        Scanner sc = new Scanner(System.in);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         // 所有头结点指向-1
         Arrays.fill(h,-1);
-        n = sc.nextInt();
+        n = Integer.parseInt(br.readLine());
 
         for (int i=0; i<n-1; i++) {
-            int a = sc.nextInt();
-            int b = sc.nextInt();
+            String[] cur = br.readLine().split(" ");
+            int a = Integer.parseInt(cur[0]);
+            int b = Integer.parseInt(cur[1]);
             add(a,b);
             add(b,a);
         }

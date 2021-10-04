@@ -9,7 +9,6 @@ import java.io.InputStreamReader;
  */
 public class AC843 {
 
-
     private static final int N = 20;
     private static int[] path = new int[N];
     private static char[][] g = new char[N][N];
@@ -37,12 +36,12 @@ public class AC843 {
                 g[u][i] = 'Q';
                 col[i] = dj[u+i] = udj[n-u+i] = true;
                 dfs(u+1);
+                // 恢复现场
                 col[i] = dj[u+i] = udj[n-u+i] = false;
                 g[u][i] = '.';
             }
         }
     }
-
 
     public static void main(String[] args) throws IOException {
 

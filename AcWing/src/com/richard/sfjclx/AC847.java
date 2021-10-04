@@ -18,18 +18,23 @@ public class AC847 {
 
         private static int[] h = new int[N], e = new int[N], ne = new int[N], d = new int[N], q = new int[N];
 
-        public static void main(String[] args) throws IOException, IOException {
+        public static void main(String[] args) throws IOException {
+
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
             String[] str1 = reader.readLine().split(" ");
             n = Integer.parseInt(str1[0]);
             m = Integer.parseInt(str1[1]);
+
             for (int i = 0; i < h.length; i++) {
                 h[i] = -1;
             }
+
             for (int i = 0; i < m; i++) {
                 String[] str2 = reader.readLine().split(" ");
                 add(Integer.parseInt(str2[0]), Integer.parseInt(str2[1]));
             }
+
             System.out.println(bfs());
             reader.close();
         }
@@ -42,6 +47,7 @@ public class AC847 {
 
         private static int bfs() {
             int hh = 0, tt = 0;
+
             q[0] = 1;
 
             Arrays.fill(d,-1);
@@ -60,5 +66,5 @@ public class AC847 {
             return d[n];
         }
 
-    }
+}
 
