@@ -1,4 +1,4 @@
-package com.richard.mszn.zj01;
+package com.richard.mszn.栈和队列;
 
 import java.util.LinkedList;
 
