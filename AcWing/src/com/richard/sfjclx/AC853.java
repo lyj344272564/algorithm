@@ -1,5 +1,8 @@
 package com.richard.sfjclx;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -10,38 +13,14 @@ public class AC853 {
 
     static int N = 510;
     static int M = 10010;
-    // 定义一个类来存所有边
     static Edge[] edge = new Edge[M];
-    // 距离
     static int[] dist = new int[N];
     static int[] back = new int[N];
     static int n,m,k;
+    static final int max = 0x3f3f3f;
 
-    public static void main(String[] args) {
-
-        Scanner sc = new Scanner(System.in);
-        n = sc.nextInt();
-        m = sc.nextInt();
-        k = sc.nextInt();
-
-        for (int i=0; i<m; i++) {
-            int a = sc.nextInt();
-            int b = sc.nextInt();
-            int c = sc.nextInt();
-            edge[i] = new Edge(a,b,c);
-        }
-
-        if (bellman_ford() > 0x3f3f3f>>1) {
-            System.out.println("impossible");
-        } else {
-            System.out.println(bellman_ford());
-        }
-    }
-
-    private static int bellman_ford() {
-
+    static int bellman_ford() {
         Arrays.fill(dist,0x3f3f3f);
-
         dist[1] = 0;
         for (int i=0; i<k; i++) {
             // 只用上一次迭代的结果来copy  才不会发生串联
@@ -51,8 +30,32 @@ public class AC853 {
                 dist[e.b] = Math.min(dist[e.b], back[e.a]+e.c);
             }
         }
-
         return dist[n];
+    }
+
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        String[] val  = br.readLine().split(" ");
+        n = Integer.parseInt(val[0]);
+        m = Integer.parseInt(val[1]);
+        k = Integer.parseInt(val[2]);
+
+        for (int i=0; i<m; i++) {
+            String[] cur = br.readLine().split(" ");
+            int a = Integer.parseInt(cur[0]);
+            int b = Integer.parseInt(cur[1]);
+            int c = Integer.parseInt(cur[2]);
+            edge[i] = new Edge(a,b,c);
+        }
+
+        if (bellman_ford() > (0x3f3f3f>>1)) {
+            System.out.println("impossible");
+        } else {
+            System.out.println(dist[n]);
+        }
+
     }
 
 }

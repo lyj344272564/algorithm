@@ -6,7 +6,6 @@ import java.util.PriorityQueue;
 
 /**
  * 850. Dijkstra求最短路 II
- *
  * https://learnku.com/articles/35637
  */
 public class AC850 {
@@ -39,32 +38,35 @@ public class AC850 {
      */
 
     static int N = 100010;
-
     static int n, m, idx;
-    static int [] h = new int [N] ;
-    static int [] w = new int [N] ;
-    static int [] e = new int [N] ;
-    static int [] ne = new int [N] ;
-    static int [] dist = new int [N] ;
+    // 邻接表
+    static int [] h = new int [N];
+    static int [] w = new int [N];
+    static int [] e = new int [N];
+    static int [] ne = new int [N];
+
+    static int [] dist = new int [N];
     static boolean [] st = new boolean [N];
 
-    private static void add(int a, int b, int c)
-    {
+    private static void add(int a, int b, int c) {
         e[idx] = b;
         w[idx] = c;
         ne[idx] = h[a];
-        h[a] = idx ++ ;
+        h[a] = idx++;
     }
 
     public static void main (String [] args) throws Exception{
+
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter log = new BufferedWriter(new OutputStreamWriter(System.out)) ;
-        String [] values = br.readLine().split("\\s+");
+        BufferedWriter log = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        String [] values = br.readLine().split(" ");
         n = Integer.parseInt(values[0]);
         m = Integer.parseInt(values[1]);
+        // 初始化领接表
         Arrays.fill(h, -1) ;
         while (m-- > 0) {
-            values = br.readLine().split("\\s+");
+            values = br.readLine().split(" ");
             int a = Integer.parseInt(values[0]);
             int b = Integer.parseInt(values[1]);
             int c = Integer.parseInt(values[2]);
@@ -72,7 +74,7 @@ public class AC850 {
         }
 
         int ret = dijkstra(n);
-        log.write(ret + "\n") ;
+        log.write(ret + "\n");
         log.flush();
         log.close();
         br.close();
@@ -83,13 +85,13 @@ public class AC850 {
         PriorityQueue<int[]> pq = new PriorityQueue<>(n, (a, b) -> {return a[1] - b[1];});
         int INF = 1 << 30 ;
         Arrays.fill(dist,INF);
-        pq.offer(new int []{1, 0}) ;
+        pq.offer(new int []{1, 0});
         dist[1] = 0 ;
         while (!pq.isEmpty()) {
             int[] cur = pq.poll();
-            int ver = cur[0] ;
-            int distance = cur[1] ;
-            if (st[ver]) continue ;
+            int ver = cur[0];
+            int distance = cur[1];
+            if (st[ver]) continue;
             st[ver] = true;
             for (int i = h[ver]; i != -1; i = ne[i]){
                 int j = e[i];

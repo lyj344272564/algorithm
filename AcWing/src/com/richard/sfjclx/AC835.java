@@ -43,7 +43,6 @@ public class AC835 {
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         String[] val = br.readLine().split(" ");
         int n = Integer.parseInt(val[0]);
@@ -60,10 +59,7 @@ public class AC835 {
                 System.out.println(i);
             }
 
-
         }
-
-
 
     }
 
