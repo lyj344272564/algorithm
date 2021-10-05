@@ -15,7 +15,7 @@ public class AC845 {
 
         String str = "";
 
-        for (int i = 0; i < 9; i ++){
+        for (int i=0; i<9; i++){
             str += cin.next();
         }
 
