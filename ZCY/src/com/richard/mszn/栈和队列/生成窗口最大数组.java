@@ -6,11 +6,13 @@ public class 生成窗口最大数组 {
 
     public int[] getMaxWindow(int[] arr, int w) {
 
+        // 判断边界条件
         if (arr == null || w<1 || arr.length<w) {
             return null;
         }
 
         LinkedList<Integer> qmax = new LinkedList<Integer>();
+        // 返回的结果集 arr.length-w+1 表示结果的个数
         int[] res = new int[arr.length-w+1];
         int idx = 0;
 
