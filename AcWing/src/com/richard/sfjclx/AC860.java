@@ -14,10 +14,12 @@ public class AC860 {
     static int m;
     static final int N = 100010;
     static final int M = 200010;
+
     static int[] h = new int[N];
     static int[] e = new int[M];
     static int[] ne = new int[M];
     static int idx;
+
     static int[] color = new int[N];
 
     public static void main(String[] args) throws IOException {

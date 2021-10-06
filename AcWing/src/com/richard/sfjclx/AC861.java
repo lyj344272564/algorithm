@@ -27,23 +27,21 @@ public class AC861 {
 
     public static void main(String[] args) throws IOException {
 
-        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        String[] val = bf.readLine().split(" ");
+        String[] val = br.readLine().split(" ");
         n1 = Integer.parseInt(val[0]);
         n2 = Integer.parseInt(val[1]);
         m = Integer.parseInt(val[2]);
 
         Arrays.fill(h,-1);
-
-        while (m-- > 0) {
-            String[] cur = bf.readLine().split(" ");
+        while (m-- != 0) {
+            String[] cur = br.readLine().split(" ");
             int a = Integer.parseInt(cur[0]);
             int b = Integer.parseInt(cur[1]);
             add(a,b);
         }
-
-        int res  = 0;
+        int res = 0;
         for (int i=1; i<=n1; i++) {
             Arrays.fill(st,false);
             if (find(i)) {
@@ -54,25 +52,26 @@ public class AC861 {
 
     }
 
+    static void add(int a, int b) {
+        e[idx] = b;
+        ne[idx] = h[a];
+        h[a] = idx++;
+
+    }
+
     static boolean find(int x) {
-        for (int i=h[x];i!=-1; i=ne[i]) {
+
+        for (int i=h[x]; i!=-1; i=ne[i]) {
             int j = e[i];
             if (!st[j]) {
                 st[j] = true;
-                // 如果没有匹配或者说可以找到下家
-                if (match[j] == 0 || find(match[j])) {
+                if (match[j]==0 || find(match[j])) {
                     match[j] = x;
                     return true;
                 }
             }
         }
         return false;
-    }
-
-    static void add(int a, int b) {
-        e[idx] = b;
-        ne[idx] = h[a];
-        h[a] = idx++;
     }
 
 }

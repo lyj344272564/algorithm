@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class AC853 {
 
     static int N = 510;
-    static int M = 10010;
+    static int M = 100010;
     static Edge[] edge = new Edge[M];
     static int[] dist = new int[N];
     static int[] back = new int[N];
