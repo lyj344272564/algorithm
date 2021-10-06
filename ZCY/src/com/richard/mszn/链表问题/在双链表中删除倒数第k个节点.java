@@ -1,8 +1,5 @@
 package com.richard.mszn.链表问题;
 
-import javax.swing.plaf.ColorUIResource;
-import javax.swing.undo.CannotUndoException;
-
 public class 在双链表中删除倒数第k个节点 {
 
     public static DoubleNode removeLastKthNode(DoubleNode head, int lastKth) {
