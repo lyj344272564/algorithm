@@ -15,7 +15,8 @@ public class AC5 {
     static int[] w = new int[N];
     static int[] s = new int[N];
     static int[] f = new int[N];
-    //    static int[] f = new int[N];
+    // static int[] f = new int[N];
+
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -31,6 +32,7 @@ public class AC5 {
             int b  = Integer.parseInt(cur[1]);
             int s  = Integer.parseInt(cur[2]);
             int k = 1;
+
             while (k <= s) {
                 cnt++;
                 v[cnt] = a*k;
@@ -38,11 +40,14 @@ public class AC5 {
                 s -= k;
                 k *= 2;
             }
+
+            // 剩下的
             if (s > 0) {
                 cnt++;
                 v[cnt] = a*s;
                 w[cnt] = b*s;
             }
+            System.out.println("cnt=" + cnt);
         }
 
         n = cnt;

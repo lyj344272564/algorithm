@@ -3,7 +3,6 @@ package com.richard.sfjclx;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 
 /**
  * 9. 分组背包问题
@@ -36,19 +35,6 @@ public class AC9 {
             }
 
         }
-
-//        Scanner sc = new Scanner(System.in);
-//        n = sc.nextInt();
-//        m = sc.nextInt();
-//
-//        for (int i=1; i<=n; i++) {
-//            s[i] = sc.nextInt();
-//            for (int j=0; j<s[i]; j++) {
-//                v[i][j] = sc.nextInt();
-//                w[i][j] = sc.nextInt();
-//            }
-//        }
-
 
         for (int i=1; i<=n; i++) {
             for (int j=m; j>=0; j--) {

@@ -36,6 +36,9 @@ public class AC2 {
                 f[j] = Math.max(f[j],f[j-v[i]]+w[i]);
             }
         }
+
+        System.out.println(f[m]);
+
 //
 //        for (int i=1; i<=n; i++) {
 //            for (int j=0; j<=m; j++) {
@@ -47,11 +50,8 @@ public class AC2 {
 //                }
 //            }
 //        }
-
-
-
 //        System.out.println(f[n][m]);
-        System.out.println(f[m]);
+
     }
 
 }

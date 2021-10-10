@@ -15,7 +15,6 @@ public class AC4 {
     static int[] w = new int[N];
     static int[] s = new int[N];
     static int[][] f = new int[N][N];
-//    static int[] f = new int[N];
 
     public static void main(String[] args) throws IOException {
 
