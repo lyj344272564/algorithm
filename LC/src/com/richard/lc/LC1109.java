@@ -3,7 +3,7 @@ package com.richard.lc;
 /**
  * 1109. 航班预订统计
  */
-public class AC1109 {
+public class LC1109 {
     public int[] corpFlightBookings(int[][] a, int n) {
 
         int[] b = new int[n+1];
