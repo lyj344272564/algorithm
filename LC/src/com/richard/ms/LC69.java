@@ -9,16 +9,18 @@ public class LC69 {
     public int mySqrt(int x) {
         int l = 0;
         int r = x;
+        int ans = -1;
 
-        while (l < r) {
+        while (l <= r) {
             // 取巧来 防止越界   也可以写成
-            int mid = l + (int)1l + r  >> 1;
-            if (mid < x / mid) {
-                l = mid;
+            int mid = l + (r - l)/2;
+            if ((long)mid*mid <= x) {
+                ans = mid;
+                l = mid + 1;
             } else {
                 r = mid - 1;
             }
         }
-        return r;
+        return ans;
     }
 }
