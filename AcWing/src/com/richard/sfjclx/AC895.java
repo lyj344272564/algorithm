@@ -29,6 +29,7 @@ public class AC895 {
         for (int i=1; i<=n; i++) {
             f[i] = 1;
             for (int j=1; j<i; j++) {
+                // 这里不加=是因为上面已经是1   f[i] = 1;
                 if (a[j] < a[i]) {
                     f[i] = Math.max(f[i],f[j] + 1);
                 }

@@ -17,6 +17,7 @@ public class AC282 {
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
         n = Integer.parseInt(br.readLine());
 
         String[] cur = br.readLine().split(" ");
@@ -24,6 +25,7 @@ public class AC282 {
             s[i] = Integer.parseInt(cur[i-1]);
         }
 
+        // 前缀和
         for (int i=1; i<=n; i++) {
             s[i] += s[i-1];
         }
@@ -34,12 +36,13 @@ public class AC282 {
                 int r = i + len - 1;
                 f[l][r] = (int)1e9;
                 for (int k=l; k<r; k++) {
-                    f[l][r] = Math.min(f[l][r],f[l][k]+f[k+1][r]+ s[r]-s[l-1]);
+                    f[l][r] = Math.min(f[l][r], f[l][k]+f[k+1][r]+s[r]-s[l-1]);
                 }
-
             }
         }
+
         System.out.println(f[1][n]);
+
     }
 
 }
