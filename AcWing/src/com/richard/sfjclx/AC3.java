@@ -53,7 +53,6 @@ public class AC3 {
 //        }
 //        System.out.println(f[n][m]);
 
-
         // 第三 一维
         for (int i=1; i<=n; i++) {
             for (int j=v[i]; j<=m; j++) {
@@ -61,7 +60,6 @@ public class AC3 {
             }
         }
         System.out.println(f[m]);
-
     }
 
 }
