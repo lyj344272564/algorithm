@@ -41,8 +41,7 @@ public class AC900 {
 //        }
 //
 //        System.out.println(f[n]);
-
-        f[0][0] = 1;
+//        f[0][0] = 1;
 
         f[0][0] = 1;
 

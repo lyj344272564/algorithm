@@ -31,6 +31,7 @@ public class AC902 {
             f[0][i] = i;
         }
 
+        // 删除
         for (int i=0; i<=n; i++) {
             f[i][0] = i;
         }
@@ -45,7 +46,6 @@ public class AC902 {
                 }
             }
         }
-
 
         System.out.println(f[n][m]);
 

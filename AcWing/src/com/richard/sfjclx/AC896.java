@@ -11,6 +11,7 @@ public class AC896 {
 
     static int n;
     static final int N = 100010;
+    // 每个数
     static int[] a = new int[N];
     // 所有不同长度下上升子序列的最小值
     static int[] q = new int[N];
@@ -40,9 +41,12 @@ public class AC896 {
                     r = mid - 1;
                 }
             }
+            // r找的是可以接到哪个数的后面
             len = Math.max(len, r+1);
+            // 更新
             q[r+1] = a[i];
         }
+
         System.out.println(len);
 
     }

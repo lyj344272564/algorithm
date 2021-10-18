@@ -15,7 +15,6 @@ public class AC899 {
     static int[][] f = new int[N][N];
     static String[] str = new String[M];
 
-
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -25,11 +24,11 @@ public class AC899 {
         n = Integer.parseInt(val[0]);
         m = Integer.parseInt(val[1]);
 
-        for(int i = 0; i < n ;i ++){
+        for(int i=0; i<n; i ++){
             str[i] = " " + br.readLine();
         }
 
-        for(int i = 0; i < m ;i ++){
+        for(int i=0; i<m; i ++){
             String[] str1 = br.readLine().split(" ");
             String t = " " + str1[0];
             Integer limit = Integer.parseInt(str1[1]);
@@ -59,8 +58,7 @@ public class AC899 {
                     f[j][k] = Math.min(f[j-1][k] + 1, f[j][k-1] + 1);
                     if(t.charAt(j) == str[i].charAt(k)) {
                         f[j][k] = Math.min(f[j][k], f[j-1][k-1]);
-                    }
-                    else {
+                    } else {
                         f[j][k] = Math.min(f[j][k], f[j-1][k-1] + 1);
                     }
                 }
