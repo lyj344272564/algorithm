@@ -11,10 +11,10 @@ public class LC69 {
         int r = x;
         int ans = -1;
 
-        while (l <= r) {
-            // 取巧来 防止越界   也可以写成
-            int mid = l + (r - l)/2;
-            if ((long)mid*mid <= x) {
+        while (l<=r) {
+            int mid = l + r >> 1;
+            if ((long)mid*mid <=x) {
+                // 存储mid
                 ans = mid;
                 l = mid + 1;
             } else {

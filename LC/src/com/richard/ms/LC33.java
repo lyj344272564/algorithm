@@ -42,7 +42,6 @@ public class LC33 {
         if (nums[r] == target) {
             return r;
         }
-
         return -1;
     }
 

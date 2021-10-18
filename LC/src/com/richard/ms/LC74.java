@@ -1,7 +1,5 @@
 package com.richard.ms;
 
-import javax.smartcardio.TerminalFactory;
-
 public class LC74 {
 
     public boolean searchMatrix(int[][] matrix, int target) {
