@@ -25,7 +25,8 @@ public class LC33 {
             }
         }
 
-        if (nums[0] <= target) {
+        // 最小点比target小时在右面
+        if (nums[r] <= target) {
             l = 0;
         } else {
             l = r + 1;
