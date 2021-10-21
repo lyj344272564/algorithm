@@ -7,25 +7,6 @@ public class 快速排序模板 {
 
     public static void main(String[] args) throws IOException {
 
-//        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-//
-//        int n = Integer.parseInt(reader.readLine());
-//
-//        int[] q = new int[n];
-//
-//        String[] strs = reader.readLine().split(" ");
-//
-//        for(int i = 0; i < n; i++){
-//            q[i] = Integer.parseInt(strs[i]);
-//        }
-//
-//        quick_start(q, 0, n-1);
-//
-//        for(int i = 0; i < q.length; i++){
-//            System.out.print(q[i] + " ");
-//        }
-//
-//        reader.close();
 
         Scanner sc=new Scanner(System.in);
 
@@ -60,7 +41,7 @@ public class 快速排序模板 {
          } while (q[i] < x);
          do {
              j--;
-         } while (q[i] > x);
+         } while (q[j] > x);
          if (i<j) {
              int temp = q[i];
              q[i] = q[j];

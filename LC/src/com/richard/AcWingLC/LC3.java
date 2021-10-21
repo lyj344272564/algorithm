@@ -11,7 +11,6 @@ public class LC3 {
     // 滑动窗口 + 标记数组
     public int lengthOfLongestSubstring(String s) {
         Map<Character,Integer> map = new HashMap<>();
-
         int res = 0;
         for (int i=0,j=0; i<s.length(); i++) {
            char c = s.charAt(i);
