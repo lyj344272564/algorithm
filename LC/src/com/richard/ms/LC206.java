@@ -1,7 +1,5 @@
 package com.richard.ms;
 
-import javax.swing.event.MenuKeyListener;
-
 /**
  * 206. 反转链表
  */
