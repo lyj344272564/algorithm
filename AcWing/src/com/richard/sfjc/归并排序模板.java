@@ -15,7 +15,7 @@ public class 归并排序模板 {
         String[] val = bf.readLine().split(" ");
 
         int n = Integer.parseInt(val[0]);
-        int[] a=new int[n];
+        int[] a = new int[n];
 
         String[] cur = bf.readLine().split(" ");
         for (int i=0; i<n; i++) {
