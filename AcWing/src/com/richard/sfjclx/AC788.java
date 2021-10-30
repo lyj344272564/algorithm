@@ -15,7 +15,6 @@ public class AC788 {
     public static void main(String[] args) throws IOException {
 
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         String[] val = bf.readLine().split(" ");
 
         int n = Integer.parseInt(val[0]);
