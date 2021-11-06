@@ -1,5 +1,8 @@
 package com.richard.剑指打卡;
 
+import javax.print.DocFlavor;
+import java.util.Stack;
+
 /**
  * AcWing 14. 不修改数组找出重复的数字
  * n个位置 n+1个数 类似
@@ -11,6 +14,8 @@ public class AC14 {
         if (nums.length == 0 || nums.length == 1) {
             return -1;
         }
+
+        Stack<Integer> s = new Stack<>();
 
         // 分治法 + 抽屉原理
         int start = 1, end = nums.length - 1;
