@@ -9,7 +9,6 @@ import java.util.Arrays;
  * 858. Prim算法求最小生成树
  */
 public class AC858 {
-
     static int N = 510;
     // 稠密图用邻接矩阵存储
     static int[][] g = new int[N][N];
@@ -51,66 +50,34 @@ public class AC858 {
     }
 
     static int prim() {
-        Arrays.fill(dist,max);
-        int res = 0;
+
+        Arrays.fill(dist,max);//初始化所有点到集合的距离都为正无穷
+        int res = 0;//用于记录最小生成树的权值
 
         for (int i=0; i<n; i++) {
+            //找到距离集合最近的那个点(不在集合当中的)
             int t = -1;
             for (int j=1; j<=n; j++) {
-                if ((t==-1 || dist[t]>dist[j]) && !st[j]) {
+                if ((t==-1||dist[t]>dist[j]) && !st[j]) {
                     t = j;
                 }
             }
-
-            if (i!=0 && dist[t]==max) {
+            //如果此时不是寻找的第一个点，但是所有点到集合的距离最小值为正无穷，说明不存在最小生成树
+            if (i>0 && dist[t] == max) {
                 return -1;
             }
 
-            st[t] = true;
             if (i > 0) {
                 res += dist[t];
             }
-
+            // t加到距离最近的点中去
+            st[t] = true;
+            //用新加进来的点去更新其它点到集合的距离
             for (int j=1; j<=n; j++) {
                 dist[j] = Math.min(dist[j], g[t][j]);
             }
-
         }
-
         return res;
     }
-
-//    static int prime() {
-//
-//        Arrays.fill(dist,max);//初始化所有点到集合的距离都为正无穷
-//        int res = 0;//用于记录最小生成树的权值
-//
-//        for (int i=0; i<n; i++) {
-//            //找到距离集合最近的那个点(不在集合当中的)
-//            int t = -1;
-//            for (int j=1; j<=n; j++) {
-//                if ((t==-1||dist[t]>dist[j]) && !st[j]) {
-//                    t = j;
-//                }
-//            }
-//
-//            //如果此时不是寻找的第一个点，但是所有点到集合的距离最小值为正无穷，说明不存在最小生成树
-//            if (i>0 && dist[t] == max) {
-//                return -1;
-//            }
-//
-//            if (i > 0) {
-//                res += dist[t];
-//            }
-//            // t加到距离最近的点中去
-//            st[t] = true;
-//
-//            //用新加进来的点去更新其它点到集合的距离
-//            for (int j=1; j<=n; j++) {
-//                dist[j] = Math.min(dist[j], g[t][j]);
-//            }
-//        }
-//        return res;
-//    }
 
 }

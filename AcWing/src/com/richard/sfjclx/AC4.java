@@ -13,6 +13,7 @@ public class AC4 {
     static int n, m;
     static int[] v = new int[N];
     static int[] w = new int[N];
+    // 数量
     static int[] s = new int[N];
     static int[][] f = new int[N][N];
 
@@ -34,6 +35,7 @@ public class AC4 {
 
         for (int i=1; i<=n; i++) {
             for (int j=0; j<=m; j++) {
+                // k*v[i]<=j 体积不能大于j
                 for (int k=0; k<=s[i] && k*v[i]<=j; k++) {
                     f[i][j] = Math.max(f[i][j],f[i-1][j-v[i]*k]+w[i]*k);
                 }

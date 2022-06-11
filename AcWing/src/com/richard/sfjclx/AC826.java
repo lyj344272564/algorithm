@@ -9,10 +9,33 @@ import java.util.Scanner;
 public class AC826 {
 
     private static final int N = 100010;
+    // 某个点的值是多少
     private static int[] e = new int[N];
+    // 每个点的next值
     private static int[] ne = new int[N];
     private static int head = -1;
+    // 存储当前已经用到了哪个点
     private static int idx = 0;
+
+    // 将x插到头节点
+    private static void add_to_head(int x) {
+        // 存值
+        e[idx] = x;
+        ne[idx] = head;
+        head = idx++;
+    }
+
+    // 将x插到下标为k的点后面
+    private static void insert(int k, int x) {
+        e[idx] = x;
+        ne[idx] = ne[k];
+        ne[k] = idx++;
+    }
+    // 将k点后面的点删掉
+    private static void remove(int k) {
+//        ne[k] = ne[++k];
+        ne[k] = ne[ne[k]];
+    }
 
     public static void main(String[] args) {
 
@@ -20,112 +43,31 @@ public class AC826 {
 
         int M = sc.nextInt();
 
-        while (M-- != 0) {
-            String op = sc.next();
-            if (op.equals("H")) {
+        while (M-- > 0) {
+            String str = sc.next();
+            if (str.equals("H")) {
                 int x = sc.nextInt();
-                add_head(x);
-            } else if (op.equals("I")) {
+                add_to_head(x);
+            } else if (str.equals("I")) {
                 int k = sc.nextInt();
                 int x = sc.nextInt();
-                insert(k-1, x);
-            } else if (op.equals("D")) {
+                insert(k - 1, x);
+            } else if (str.equals("D")) {
                 int k = sc.nextInt();
-                if (k == 0) {
+                if (k == 0)
                     head = ne[head];
-                } else {
-                    delete(k-1);
+                else {
+                    remove(k - 1);
                 }
             }
         }
 
-        for (int i=head; i!=-1; i=ne[i]) {
+        int i = head;
+        while (i != -1) {
             System.out.print(e[i] + " ");
+            i = ne[i];
         }
-    }
-
-    // 在头部插入
-    private static void add_head(int x) {
-
-        e[idx] = x;
-        ne[idx] = head;
-        head = idx++;
 
     }
-
-    // 在第k个插入的数后面插入x
-    private static void insert(int k, int x) {
-        e[idx] = x;
-        ne[idx] = ne[k];
-        ne[k] = idx++;
-    }
-
-    // 删除第k个插入的数后面的数
-    private static void delete(int k) {
-        ne[k] = ne[ne[k]];
-    }
-
-//
-//    private static final int N = 100010;
-//    // 某个点的值是多少
-//    private static int[] e = new int[N];
-//    // 每个点的next值
-//    private static int[] ne = new int[N];
-//    private static int head = -1;
-//    // 存储当前已经用到了哪个点
-//    private static int idx = 0;
-//
-//    // 将x插到头节点
-//    private static void add_to_head(int x) {
-//        // 存值
-//        e[idx] = x;
-//        ne[idx] = head;
-//        head = idx++;
-//    }
-//
-//    // 将x插到下标为k的点后面
-//    private static void insert(int k, int x) {
-//        e[idx] = x;
-//        ne[idx] = ne[k];
-//        ne[k] = idx++;
-//    }
-//    // 将k点后面的点删掉
-//    private static void remove(int k) {
-////        ne[k] = ne[++k];
-//        ne[k] = ne[ne[k]];
-//    }
-//
-//    public static void main(String[] args) {
-//
-//        Scanner sc = new Scanner(System.in);
-//
-//        int M = sc.nextInt();
-//
-//        while (M-- > 0) {
-//            String str = sc.next();
-//            if (str.equals("H")) {
-//                int x = sc.nextInt();
-//                add_to_head(x);
-//            } else if (str.equals("I")) {
-//                int k = sc.nextInt();
-//                int x = sc.nextInt();
-//                insert(k - 1, x);
-//            } else if (str.equals("D")) {
-//                int k = sc.nextInt();
-//                if (k == 0)
-//                    head = ne[head];
-//                else {
-//                    remove(k - 1);
-//                }
-//            }
-//        }
-//
-//        int i = head;
-//        while (i != -1) {
-//            System.out.print(e[i] + " ");
-//            i = ne[i];
-//        }
-//
-//    }
 
 }

@@ -11,7 +11,9 @@ public class AC5 {
 
     static final int N = 200010;
     static int n, m;
+    // 体积
     static int[] v = new int[N];
+    // 价值
     static int[] w = new int[N];
     static int[] s = new int[N];
     static int[] f = new int[N];
@@ -60,5 +62,4 @@ public class AC5 {
         System.out.println(f[m]);
 
     }
-
 }

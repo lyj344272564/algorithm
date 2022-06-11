@@ -26,15 +26,10 @@ public class 快速排序模板 {
     }
 
    static void quick_start(int q[], int l, int r) {
-
-     if (l>=r) {
-         return;
-     }
-
+     if (l>=r) return;
      int x = q[l];
      int i = l - 1;
      int j = r + 1;
-
      while (i < j) {
          do {
              i++;
@@ -48,9 +43,7 @@ public class 快速排序模板 {
              q[j] = temp;
          }
      }
-
      quick_start(q,l,j);
      quick_start(q,j+1,r);
-
    }
 }

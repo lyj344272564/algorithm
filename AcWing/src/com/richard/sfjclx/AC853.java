@@ -19,9 +19,11 @@ public class AC853 {
     static int n,m,k;
     static final int max = 0x3f3f3f;
 
+    // 求1到n的最短路距离，如果无法从1走到n，则返回-1。
     static int bellman_ford() {
         Arrays.fill(dist,0x3f3f3f);
         dist[1] = 0;
+        // 如果第n次迭代仍然会松弛三角不等式，就说明存在一条长度是n+1的最短路径，由抽屉原理，路径中至少存在两个相同的点，说明图中存在负权回路。
         for (int i=0; i<k; i++) {
             // 只用上一次迭代的结果来copy  才不会发生串联
             back = dist.clone();
@@ -60,6 +62,7 @@ public class AC853 {
 
 }
 
+// 边，a表示出点，b表示入点，c表示边的权重
 class Edge{
     int a;
     int b;

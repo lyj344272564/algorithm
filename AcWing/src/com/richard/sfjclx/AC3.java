@@ -24,11 +24,9 @@ public class AC3 {
         m = Integer.parseInt(val[1]);
 
         for (int i=1; i<=n; i++) {
-
             String[] cur = br.readLine().split(" ");
             v[i] = Integer.parseInt(cur[0]);
             w[i] = Integer.parseInt(cur[1]);
-
         }
 
 //        第一 三维
@@ -61,5 +59,4 @@ public class AC3 {
         }
         System.out.println(f[m]);
     }
-
 }
